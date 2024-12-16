@@ -1,6 +1,6 @@
-# Repository for {Template} Project
+# Repository for Others Project
 
-This GitHub repository serves as a central location for storing the code of my {template} project. The project is licensed under [MIT License](LICENSE).
+This GitHub repository serves as a central location for storing the code of my others project. The project is licensed under [MIT License](LICENSE).
 
 ## License
 
@@ -14,23 +14,23 @@ This repository utilizes the MonoRepo approach, which involves integrating multi
 
 ## Getting Started
 
-To begin working with the {template} project, follow these steps:
+To begin working with the others project, follow these steps:
 
 1. Clone the repository to your local machine:
 
    `
-   git clone https://github.com/dev1virtuoso/{Template}.git
+   git clone https://github.com/dev1virtuoso/Others.git
    `
 
 2. Install any necessary dependencies as outlined in the project's documentation.
 
-3. Explore the directory, which contains the implementation of various {template} algorithms and techniques.
+3. Explore the directory, which contains the implementation of various others algorithms and techniques.
 
-4. Execute the scripts to run the {template} project on your own datasets or examples.
+4. Execute the scripts to run the others project on your own datasets or examples.
 
 ## Contribution Guidelines
 
-Contributions to this {template} project are highly appreciated. If you wish to contribute, please adhere to the following guidelines:
+Contributions to this others project are highly appreciated. If you wish to contribute, please adhere to the following guidelines:
 
 - Fork the repository and create a new branch for your contributions.
 - Make your changes and thoroughly test them.
@@ -40,6 +40,6 @@ By contributing to this project, you agree to license your contributions under t
 
 ## Contact Information
 
-If you have any questions or suggestions regarding this {template} project, please feel free to contact me through [following methods](https://github.com/dev1virtuoso/Documentation/blob/main/dev1virtuoso/Attachment/dev1virtuoso/carson-wu.md).
+If you have any questions or suggestions regarding this others project, please feel free to contact me through [following methods](https://github.com/dev1virtuoso/Documentation/blob/main/dev1virtuoso/Attachment/dev1virtuoso/carson-wu.md).
 
 Thank you for your interest and contributions to the project!
