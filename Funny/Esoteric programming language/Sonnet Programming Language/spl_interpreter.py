@@ -1,10 +1,6 @@
-# Sonnet Programming Language (SPL) Interpreter - ENHANCED VERSION
-# Now with real output capability!
-
 import sys
 import re
 
-# Expanded Shakespearean variables
 variables = {
     "thee": 0, "thou": 0, "love": 0, "time": 0, "heart": 0,
     "rose": 0, "beauty": 0, "summer": 0, "eye": 0, "death": 0,
@@ -17,7 +13,7 @@ negative_words = ["foul", "dark", "false", "cold", "cruel", "base", "rough", "ha
 multiplier_words = ["more", "twice", "double", "thrice", "every"]
 
 output_buffer = []
-proclaim_var = "thee"  # Default variable to output in the couplet
+proclaim_var = "thee"
 
 def count_syllables(word):
     word = word.lower().strip(".,!?;")
@@ -46,30 +42,24 @@ def parse_line(line, line_num):
     global proclaim_var
     line_lower = line.lower()
     
-    # Detect which variable to proclaim in couplet
     if line_num >= 12:
         if any(word in line_lower for word in ["proclaim", "sing", "tell", "speak", "voice", "say"]):
             for var in variables:
                 if var in line_lower:
                     proclaim_var = var
-    
-    # Assignment: common Shakespearean patterns
+
     for var in variables:
         if var in line_lower:
             if any(p in line_lower for p in ["art ", "art more ", "be ", "is ", "hath ", "shall ", "grow", "ow"]):
                 variables[var] += evaluate_phrase_strength(line_lower)
-            # Special boost for direct address
             if "thy " + var in line_lower or "thou " + var in line_lower:
                 variables[var] += 2
-
-    # Addition: "sum of X and Y"
+                
     sum_match = re.search(r'sum of (\w+) and (\w+)', line_lower)
     if sum_match:
         a, b = sum_match.groups()
         if a in variables and b in variables:
             variables[a] += variables[b]
-
-    # Multiplication: "more", "twice", etc. already handled in strength
 
 def check_poetic_structure(lines):
     if len(lines) != 14:
@@ -81,7 +71,6 @@ def check_poetic_structure(lines):
         if not 8 <= syllables <= 12:
             print(f"(Poetic note: Line {i+1} has {syllables} syllables — close to iambic pentameter)")
 
-    # Safe last word extraction
     last_words = []
     for line in lines:
         match = re.search(r'(\w+)[^\\w]*$', line.lower())
@@ -103,16 +92,15 @@ def run_sonnet(source_code):
     for i, line in enumerate(lines):
         parse_line(line, i)
 
-    # Output in the volta (couplet)
     if any(word in " ".join(lines[12:]).lower() for word in ["proclaim", "sing", "tell", "speak", "voice", "say", "lives", "breath"]):
         value = variables[proclaim_var]
-        # Convert numbers to string: split into chars (positive for ASCII)
+
         while value > 0:
-            char_code = (value % 95) + 32  # Printable ASCII: space to ~
+            char_code = (value % 95) + 32
             output_buffer.append(chr(char_code))
             value //= 95
         if not output_buffer and variables[proclaim_var] != 0:
-            output_buffer.append(chr(72))  # fallback 'H' for hello
+            output_buffer.append(chr(72))
 
     result = ''.join(output_buffer)
     print("\nOutput:", f'"{result}"' if result else "(silent contemplation)")
